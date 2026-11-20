@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Žiga Glavan — Private Guide in Slovenia</title>
+  <meta name="description" content="Private, tailor-made tours and authentic local experiences in Slovenia with guide Žiga Glavan." />
+
+  <!-- Elegant Editorial Fonts (Google Fonts with clean system fallbacks) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       1. DESIGN TOKENS (Edit colors, fonts, and spacing easily here)
+       ========================================================================== */
+    :root {
+      --bg-primary: #FAF8F5;       /* Warm sand / cream background */
+      --bg-secondary: #F2EEE7;     /* Soft stone tint for subtle contrast sections */
+      --bg-card: #FFFFFF;          /* Clean card surface */
+      --text-primary: #1C2E26;     /* Deep forest / charcoal green */
+      --text-secondary: #4E5D56;   /* Muted sage-charcoal for body copy */
+      --text-light: #FAF8F5;       /* Light text for dark overlays */
+      --accent: #B37A4C;           /* Muted brass / terracotta accent */
+      --accent-hover: #96633B;     /* Darker brass on hover */
+      --border-subtle: rgba(28, 46, 38, 0.12);
+
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --container-max: 1160px;
+      --section-pad: clamp(4.5rem, 8vw, 7.5rem);
+      --radius: 10px;
+      --transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* ==========================================================================
+       2. RESET & BASE STYLES
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-weight: 400;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Typography */
+    h1, h2, h3, .serif {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.85rem;
+    }
+
+    .section-title {
+      font-size: clamp(2.15rem, 4vw, 3.25rem);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-lead {
+      font-size: 1.08rem;
+      color: var(--text-secondary);
+      max-width: 620px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.85rem;
+      border-radius: var(--radius);
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: all var(--transition);
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: #FFFFFF;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-light {
+      border-color: rgba(250, 248, 245, 0.65);
+      color: var(--text-light);
+      background: rgba(28, 46, 38, 0.25);
+      backdrop-filter: blur(4px);
+    }
+
+    .btn-outline-light:hover {
+      background: var(--text-light);
+      color: var(--text-primary);
+    }
+
+    .btn-outline-dark {
+      border-color: var(--border-subtle);
+      color: var(--text-primary);
+      background: transparent;
+    }
+
+    .btn-outline-dark:hover {
+      border-color: var(--text-primary);
+      background: var(--text-primary);
+      color: var(--text-light);
+    }
+
+    /* ==========================================================================
+       3. STICKY HEADER & LANGUAGE SWITCHER
+       ========================================================================== */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 1.15rem 0;
+      transition: background-color var(--transition), padding var(--transition), box-shadow var(--transition);
+      color: var(--text-light);
+    }
+
+    .site-header.scrolled {
+      background-color: rgba(250, 248, 245, 0.96);
+      backdrop-filter: blur(10px);
+      color: var(--text-primary);
+      padding: 0.85rem 0;
+      box-shadow: 0 4px 24px rgba(28, 46, 38, 0.06);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-family: var(--font-serif);
+      font-size: 1.55rem;
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: 0.01em;
+    }
+
+    .brand-sub {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      opacity: 0.8;
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      position: relative;
+      padding: 0.25rem 0;
+      opacity: 0.9;
+      transition: opacity var(--transition);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background-color: var(--accent);
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Language Switcher */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      background: rgba(255, 255, 255, 0.14);
+      padding: 0.25rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .site-header.scrolled .lang-switcher {
+      background: var(--bg-secondary);
+      border-color: var(--border-subtle);
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: inherit;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.35rem 0.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      opacity: 0.72;
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn:hover {
+      opacity: 1;
+    }
+
+    .lang-btn.active {
+      background-color: var(--accent);
+      color: #FFFFFF;
+      opacity: 1;
+    }
+
+    /* Mobile Hamburger */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+      padding: 0.4rem;
+    }
+
+    /* ==========================================================================
+       4. HERO SECTION
+       ========================================================================== */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      color: var(--text-light);
+      padding: 8rem 0 5rem;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(
+        180deg,
+        rgba(20, 33, 27, 0.58) 0%,
+        rgba(20, 33, 27, 0.45) 50%,
+        rgba(20, 33, 27, 0.75) 100%
+      );
+    }
+
+    .hero-content {
+      max-width: 720px;
+    }
+
+    .hero-eyebrow {
+      color: #E5C1A1;
+    }
+
+    .hero-title {
+      font-size: clamp(2.75rem, 6vw, 4.75rem);
+      margin-bottom: 1.25rem;
+      font-weight: 500;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 1.8vw, 1.22rem);
+      line-height: 1.75;
+      color: rgba(250, 248, 245, 0.9);
+      margin-bottom: 2.25rem;
+      font-weight: 300;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* ==========================================================================
+       5. ABOUT SECTION ("MEET YOUR GUIDE")
+       ========================================================================== */
+    .about {
+      padding: var(--section-pad) 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: clamp(2.5rem, 6vw, 5rem);
+      align-items: center;
+    }
+
+    .about-image-wrap {
+      position: relative;
+    }
+
+    .about-image-wrap img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: 0 20px 45px rgba(28, 46, 38, 0.12);
+    }
+
+    .about-caption {
+      margin-top: 0.85rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    .about-text p {
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
+      font-size: 1.03rem;
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.25rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .pillar h4 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      margin-bottom: 0.35rem;
+      color: var(--text-primary);
+    }
+
+    .pillar p {
+      font-size: 0.88rem;
+      line-height: 1.55;
+      margin-bottom: 0;
+    }
+
+    /* ==========================================================================
+       6. EXPERIENCES / FOCUS AREAS (Easy Placeholders to Edit Later)
+       ========================================================================== */
+    .experiences {
+      padding: var(--section-pad) 0;
+      background-color: var(--bg-secondary);
+    }
+
+    .section-header {
+      margin-bottom: 3.25rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .exp-card {
+      background-color: var(--bg-card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      transition: transform var(--transition), box-shadow var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .exp-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 40px rgba(28, 46, 38, 0.08);
+    }
+
+    .exp-card-img {
+      aspect-ratio: 16 / 11;
+      overflow: hidden;
+    }
+
+    .exp-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .exp-card:hover .exp-card-img img {
+      transform: scale(1.04);
+    }
+
+    .exp-card-body {
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .exp-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .exp-card h3 {
+      font-size: 1.55rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .exp-card p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .exp-link {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color var(--transition);
+    }
+
+    .exp-link:hover {
+      color: var(--accent);
+    }
+
+    /* ==========================================================================
+       7. PHOTO GALLERY + LIGHTBOX
+       ========================================================================== */
+    .gallery {
+      padding: var(--section-pad) 0;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 4 / 3;
+      background-color: var(--bg-secondary);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 1.25rem 1rem 0.9rem;
+      background: linear-gradient(to top, rgba(20, 33, 27, 0.78), transparent);
+      color: #FFFFFF;
+      font-size: 0.85rem;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .gallery-item:hover .gallery-caption {
+      opacity: 1;
+    }
+
+    /* Lightbox Modal */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(16, 26, 22, 0.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      max-width: 960px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+    }
+
+    .lightbox-inner img {
+      max-height: 78vh;
+      margin: 0 auto;
+      border-radius: var(--radius);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .lightbox-text {
+      color: var(--text-light);
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.75rem;
+      background: rgba(255, 255, 255, 0.12);
+      border: none;
+      color: #FFFFFF;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: background 0.2s ease;
+    }
+
+    .lightbox-close:hover {
+      background: var(--accent);
+    }
+
+    /* ==========================================================================
+       8. FAQ SECTION (Pure HTML <details> Accordion)
+       ========================================================================== */
+    .faq {
+      padding: var(--section-pad) 0;
+      background-color: var(--bg-secondary);
+    }
+
+    .faq-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius);
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+
+    .faq-item summary {
+      list-style: none;
+      padding: 1.35rem 1.5rem;
+      font-family: var(--font-serif);
+      font-size: 1.32rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-icon {
+      font-family: var(--font-sans);
+      font-size: 1.25rem;
+      color: var(--accent);
+      transition: transform 0.25s ease;
+    }
+
+    .faq-item[open] .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      padding: 0 1.5rem 1.4rem;
+      color: var(--text-secondary);
+      font-size: 0.97rem;
+      border-top: 1px solid rgba(28, 46, 38, 0.06);
+      padding-top: 1rem;
+    }
+
+    /* ==========================================================================
+       9. CONTACT & FOOTER
+       ========================================================================== */
+    .contact {
+      padding: var(--section-pad) 0;
+      background-color: var(--text-primary);
+      color: var(--text-light);
+    }
+
+    .contact-box {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-box .section-lead {
+      color: rgba(250, 248, 245, 0.8);
+      margin: 0 auto 2.5rem;
+    }
+
+    .contact-methods {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.95rem 1.5rem;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: var(--text-light);
+      font-size: 0.95rem;
+      transition: all var(--transition);
+      cursor: pointer;
+    }
+
+    .contact-pill:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .copy-feedback {
+      min-height: 1.5rem;
+      font-size: 0.85rem;
+      color: #E5C1A1;
+      margin-top: 0.5rem;
+    }
+
+    .site-footer {
+      background-color: #14221C;
+      color: rgba(250, 248, 245, 0.65);
+      padding: 2rem 0;
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    /* ==========================================================================
+       10. RESPONSIVE BREAKPOINTS
+       ========================================================================== */
+    @media (max-width: 960px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      .about-image-wrap img {
+        max-height: 520px;
+      }
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        flex-direction: column;
+        padding: 1.75rem 1.5rem;
+        gap: 1.25rem;
+        border-bottom: 1px solid var(--border-subtle);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        transform: translateY(-130%);
+        opacity: 0;
+        pointer-events: none;
+        transition: all var(--transition);
+      }
+
+      .nav-links.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .pillars {
+        grid-template-columns: 1fr;
+      }
+
+      .cards-grid,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lang-btn {
+        padding: 0.3rem 0.4rem;
+        font-size: 0.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       HEADER & NAVIGATION
+       ======================================================================== -->
+  <header class="site-header" id="header">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">
+        <span class="brand-name">Žiga Glavan</span>
+        <span class="brand-sub" data-i18n="brand_sub">Private Guide</span>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about" data-i18n="nav_about">About</a></li>
+          <li><a href="#experiences" data-i18n="nav_experiences">Experiences</a></li>
+          <li><a href="#gallery" data-i18n="nav_gallery">Gallery</a></li>
+          <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
+          <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex; align-items:center; gap:0.5rem;">
+        <!-- 5-Language Switcher (EN default, plus SL, HR, DE, ES) -->
+        <div class="lang-switcher" role="group" aria-label="Language selector">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="sl">SL</button>
+          <button class="lang-btn" data-lang="hr">HR</button>
+          <button class="lang-btn" data-lang="de">DE</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       SECTION 1: HERO
+       Tip: Replace the <img> src below with your own favorite wide photo.
+       ======================================================================== -->
+  <section class="hero" id="top">
+    <div class="hero-bg">
+      <img
+        src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=2000&q=80"
+        alt="Scenic landscape in Slovenia"
+        onerror="this.src='https://placehold.co/1920x1080/1C2E26/FAF8F5?text=Slovenia+Private+Tours'"
+      />
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="container">
+      <div class="hero-content">
+        <span class="eyebrow hero-eyebrow" data-i18n="hero_eyebrow">Slovenia • Private Guiding</span>
+        <h1 class="hero-title" data-i18n="hero_title">Discover Slovenia at Your Own Pace, Through Local Eyes.</h1>
+        <p class="hero-subtitle" data-i18n="hero_subtitle">
+          Personal stories, hidden corners, and thoughtfully tailored journeys away from the crowds—guided privately by Žiga Glavan.
+        </p>
+        <div class="hero-actions">
+          <a href="#experiences" class="btn btn-primary" data-i18n="hero_cta_primary">Explore Experiences</a>
+          <a href="#contact" class="btn btn-outline-light" data-i18n="hero_cta_secondary">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION 2: ABOUT ME ("MEET YOUR GUIDE")
+       Tip: Replace the portrait photo and customize your personal story in JS.
+       ======================================================================== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80"
+            alt="Žiga Glavan — Private Tourist Guide"
+            onerror="this.src='https://placehold.co/800x1000/E5DFD5/1C2E26?text=Ziga+Glavan+Portrait'"
+          />
+          <p class="about-caption" data-i18n="about_photo_caption">Žiga Glavan — Your local host and private guide.</p>
+        </div>
+
+        <div class="about-text">
+          <span class="eyebrow" data-i18n="about_eyebrow">About Your Guide</span>
+          <h2 class="section-title" data-i18n="about_title">Hello, I’m Žiga Glavan.</h2>
+
+          <p data-i18n="about_p1">
+            Traveling is at its best when it feels like exploring with a knowledgeable friend rather than following a script. As a private guide, I focus on creating relaxed, authentic experiences shaped around your curiosity and rhythm.
+          </p>
+          <p data-i18n="about_p2">
+            Whether we are strolling through historic streets, enjoying local flavors, or heading out into nature, my goal is to share the real stories, everyday culture, and quiet beauty that make this region unforgettable.
+          </p>
+
+          <div class="pillars">
+            <div class="pillar">
+              <h4 data-i18n="pillar1_title">100% Private</h4>
+              <p data-i18n="pillar1_desc">Just you, your companions, and a flexible itinerary with no large groups.</p>
+            </div>
+            <div class="pillar">
+              <h4 data-i18n="pillar2_title">Local Insight</h4>
+              <p data-i18n="pillar2_desc">History, culture, and hidden spots explained simply and genuinely.</p>
+            </div>
+            <div class="pillar">
+              <h4 data-i18n="pillar3_title">Tailored Pace</h4>
+              <p data-i18n="pillar3_desc">Every walk or day trip adapts to your interests, timing, and comfort.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION 3: EXPERIENCES / FOCUS AREAS (Easy Placeholders to Edit Later)
+       ======================================================================== -->
+  <section class="experiences" id="experiences">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow" data-i18n="exp_eyebrow">What We Can Explore</span>
+        <h2 class="section-title" data-i18n="exp_title">Curated Private Experiences</h2>
+        <p class="section-lead" data-i18n="exp_lead">
+          Here is an overview of the ways we can spend time together. Each experience is flexible and can be adapted once we discuss what you enjoy most.
+        </p>
+      </div>
+
+      <div class="cards-grid">
+        <!-- Card 1 -->
+        <article class="exp-card">
+          <div class="exp-card-img">
+            <img
+              src="https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?auto=format&fit=crop&w=900&q=80"
+              alt="Historic Old Town Walk"
+              onerror="this.src='https://placehold.co/800x550/1C2E26/FAF8F5?text=Experience+01'"
+            />
+          </div>
+          <div class="exp-card-body">
+            <span class="exp-tag" data-i18n="card1_tag">01 / City & Culture</span>
+            <h3 data-i18n="card1_title">Signature Walking Tours</h3>
+            <p data-i18n="card1_desc">
+              An unhurried walk through charming streets, architecture, and local stories—connecting famous landmarks with quiet corners you would easily miss on your own.
+            </p>
+            <a href="#contact" class="exp-link" data-i18n="card_cta">Inquire about this tour →</a>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="exp-card">
+          <div class="exp-card-img">
+            <img
+              src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80"
+              alt="Alpine Lakes and Nature"
+              onerror="this.src='https://placehold.co/800x550/1C2E26/FAF8F5?text=Experience+02'"
+            />
+          </div>
+          <div class="exp-card-body">
+            <span class="exp-tag" data-i18n="card2_tag">02 / Nature & Outdoors</span>
+            <h3 data-i18n="card2_title">Scenic Escapes & Day Trips</h3>
+            <p data-i18n="card2_desc">
+              From emerald lakes and alpine valleys to coastal towns—experience the diverse landscapes within easy reach, complete with scenic viewpoints and easy walks.
+            </p>
+            <a href="#contact" class="exp-link" data-i18n="card_cta">Inquire about this tour →</a>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="exp-card">
+          <div class="exp-card-img">
+            <img
+              src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80"
+              alt="Local Gastronomy and Tailor-Made Experiences"
+              onerror="this.src='https://placehold.co/800x550/1C2E26/FAF8F5?text=Experience+03'"
+            />
+          </div>
+          <div class="exp-card-body">
+            <span class="exp-tag" data-i18n="card3_tag">03 / Tailor-Made</span>
+            <h3 data-i18n="card3_title">Custom Itineraries & Local Flavors</h3>
+            <p data-i18n="card3_desc">
+              Have a specific interest, family schedule, or culinary curiosity? Let’s design a private half-day or full-day experience built entirely around your wishes.
+            </p>
+            <a href="#contact" class="exp-link" data-i18n="card_cta">Inquire about this tour →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION 4: PHOTO GALLERY (Click any photo to open Lightbox)
+       ======================================================================== -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow" data-i18n="gal_eyebrow">Visual Journal</span>
+        <h2 class="section-title" data-i18n="gal_title">Moments Along the Way</h2>
+        <p class="section-lead" data-i18n="gal_lead">
+          A glimpse into the places, atmosphere, and small details waiting to be explored.
+        </p>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-item" data-caption-key="gal_cap1">
+          <img
+            src="https://images.unsplash.com/photo-1555992336-fb0d29498b13?auto=format&fit=crop&w=900&q=80"
+            alt="Historic architecture and bridges"
+            onerror="this.src='https://placehold.co/800x600/E5DFD5/1C2E26?text=Photo+1'"
+          />
+          <div class="gallery-caption" data-i18n="gal_cap1">Morning light in the old town</div>
+        </div>
+
+        <div class="gallery-item" data-caption-key="gal_cap2">
+          <img
+            src="https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?auto=format&fit=crop&w=900&q=80"
+            alt="Mountain peaks and fresh air"
+            onerror="this.src='https://placehold.co/800x600/E5DFD5/1C2E26?text=Photo+2'"
+          />
+          <div class="gallery-caption" data-i18n="gal_cap2">Crisp alpine views above the valley</div>
+        </div>
+
+        <div class="gallery-item" data-caption-key="gal_cap3">
+          <img
+            src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=900&q=80"
+            alt="Adriatic coast charm"
+            onerror="this.src='https://placehold.co/800x600/E5DFD5/1C2E26?text=Photo+3'"
+          />
+          <div class="gallery-caption" data-i18n="gal_cap3">Mediterranean tones along the coast</div>
+        </div>
+
+        <div class="gallery-item" data-caption-key="gal_cap4">
+          <img
+            src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80"
+            alt="Traditional local dishes"
+            onerror="this.src='https://placehold.co/800x600/E5DFD5/1C2E26?text=Photo+4'"
+          />
+          <div class="gallery-caption" data-i18n="gal_cap4">Authentic tastes and local hospitality</div>
+        </div>
+
+        <div class="gallery-item" data-caption-key="gal_cap5">
+          <img
+            src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80"
+            alt="Forest trails and nature"
+            onerror="this.src='https://placehold.co/800x600/E5DFD5/1C2E26?text=Photo+5'"
+          />
+          <div class="gallery-caption" data-i18n="gal_cap5">Quiet trails off the beaten path</div>
+        </div>
+
+        <div class="gallery-item" data-caption-key="gal_cap6">
+          <img
+            src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=900&q=80"
+            alt="Evening atmosphere by the water"
+            onerror="this.src='https://placehold.co/800x600/E5DFD5/1C2E26?text=Photo+6'"
+          />
+          <div class="gallery-caption" data-i18n="gal_cap6">Golden hour by the water</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <div class="lightbox-inner">
+      <img id="lightboxImg" src="" alt="" />
+      <p class="lightbox-text" id="lightboxText"></p>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       SECTION 5: FAQ (Pure HTML <details> Accordion)
+       ======================================================================== -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="faq-wrap">
+        <div class="section-header" style="text-align:center;">
+          <span class="eyebrow" data-i18n="faq_eyebrow">Good to Know</span>
+          <h2 class="section-title" data-i18n="faq_title">Frequently Asked Questions</h2>
+        </div>
+
+        <details class="faq-item" open>
+          <summary>
+            <span data-i18n="faq1_q">Are all tours completely private?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer" data-i18n="faq1_a">
+            Yes. Every experience is organized exclusively for you and your travel companions—whether you are traveling solo, as a couple, with family, or in a small private group.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span data-i18n="faq2_q">Which languages do you guide in?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer" data-i18n="faq2_a">
+            I offer private guiding in English, Slovenian, Croatian, German, and Spanish. Simply let me know your preferred language when reaching out.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span data-i18n="faq3_q">Can we customize the itinerary and duration?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer" data-i18n="faq3_a">
+            Absolutely. We can adjust the starting time, walking pace, stops, and focus areas (history, nature, photography, or local food) to fit your schedule.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span data-i18n="faq4_q">How do I check availability or book a date?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer" data-i18n="faq4_a">
+            Just send me a message via email or WhatsApp with your preferred dates, number of people, and general interests. I will get back to you personally with ideas and availability.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION 6: DIRECT CONTACT & FOOTER
+       Tip: Update your real email, phone number, and Instagram link below.
+       ======================================================================== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <span class="eyebrow" data-i18n="contact_eyebrow">Start a Conversation</span>
+        <h2 class="section-title" data-i18n="contact_title">Let’s Plan Your Visit</h2>
+        <p class="section-lead" data-i18n="contact_lead">
+          Have a question or already know when you’re visiting? Reach out directly—I’d be happy to help you shape an unforgettable experience.
+        </p>
+
+        <div class="contact-methods">
+          <!-- Direct Email Link -->
+          <a href="mailto:info@zigaglavan.si" class="contact-pill">
+            <span>✉️</span>
+            <span>info@zigaglavan.si</span>
+          </a>
+
+          <!-- Copy Email Button -->
+          <button type="button" class="contact-pill" id="copyEmailBtn" data-email="info@zigaglavan.si">
+            <span>📋</span>
+            <span data-i18n="contact_copy">Copy Email</span>
+          </button>
+
+          <!-- Phone / WhatsApp -->
+          <a href="tel:+38640000000" class="contact-pill">
+            <span>📞</span>
+            <span>+386 40 000 000</span>
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="contact-pill">
+            <span>📷</span>
+            <span>Instagram</span>
+          </a>
+        </div>
+
+        <div class="copy-feedback" id="copyFeedback" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© 2026 Žiga Glavan. <span data-i18n="footer_rights">All rights reserved.</span></div>
+      <div data-i18n="footer_tagline">Private Tourist Guide • Authentic Local Experiences</div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       JAVASCRIPT: TRANSLATIONS DICTIONARY + INTERACTIVITY
+       Edit any text in EN, SL, HR, DE, or ES right here!
+       ======================================================================== -->
+  <script>
+    const translations = {
+      en: {
+        brand_sub: "Private Guide",
+        nav_about: "About",
+        nav_experiences: "Experiences",
+        nav_gallery: "Gallery",
+        nav_faq: "FAQ",
+        nav_contact: "Contact",
+
+        hero_eyebrow: "Slovenia • Private Guiding",
+        hero_title: "Discover Slovenia at Your Own Pace, Through Local Eyes.",
+        hero_subtitle: "Personal stories, hidden corners, and thoughtfully tailored journeys away from the crowds—guided privately by Žiga Glavan.",
+        hero_cta_primary: "Explore Experiences",
+        hero_cta_secondary: "Get in Touch",
+
+        about_photo_caption: "Žiga Glavan — Your local host and private guide.",
+        about_eyebrow: "About Your Guide",
+        about_title: "Hello, I’m Žiga Glavan.",
+        about_p1: "Traveling is at its best when it feels like exploring with a knowledgeable friend rather than following a script. As a private guide, I focus on creating relaxed, authentic experiences shaped around your curiosity and rhythm.",
+        about_p2: "Whether we are strolling through historic streets, enjoying local flavors, or heading out into nature, my goal is to share the real stories, everyday culture, and quiet beauty that make this region unforgettable.",
+        pillar1_title: "100% Private",
+        pillar1_desc: "Just you, your companions, and a flexible itinerary with no large groups.",
+        pillar2_title: "Local Insight",
+        pillar2_desc: "History, culture, and hidden spots explained simply and genuinely.",
+        pillar3_title: "Tailored Pace",
+        pillar3_desc: "Every walk or day trip adapts to your interests, timing, and comfort.",
+
+        exp_eyebrow: "What We Can Explore",
+        exp_title: "Curated Private Experiences",
+        exp_lead: "Here is an overview of the ways we can spend time together. Each experience is flexible and can be adapted once we discuss what you enjoy most.",
+        card1_tag: "01 / City & Culture",
+        card1_title: "Signature Walking Tours",
+        card1_desc: "An unhurried walk through charming streets, architecture, and local stories—connecting famous landmarks with quiet corners you would easily miss on your own.",
+        card2_tag: "02 / Nature & Outdoors",
+        card2_title: "Scenic Escapes & Day Trips",
+        card2_desc: "From emerald lakes and alpine valleys to coastal towns—experience the diverse landscapes within easy reach, complete with scenic viewpoints and easy walks.",
+        card3_tag: "03 / Tailor-Made",
+        card3_title: "Custom Itineraries & Local Flavors",
+        card3_desc: "Have a specific interest, family schedule, or culinary curiosity? Let’s design a private half-day or full-day experience built entirely around your wishes.",
+        card_cta: "Inquire about this tour →",
+
+        gal_eyebrow: "Visual Journal",
+        gal_title: "Moments Along the Way",
+        gal_lead: "A glimpse into the places, atmosphere, and small details waiting to be explored.",
+        gal_cap1: "Morning light in the old town",
+        gal_cap2: "Crisp alpine views above the valley",
+        gal_cap3: "Mediterranean tones along the coast",
+        gal_cap4: "Authentic tastes and local hospitality",
+        gal_cap5: "Quiet trails off the beaten path",
+        gal_cap6: "Golden hour by the water",
+
+        faq_eyebrow: "Good to Know",
+        faq_title: "Frequently Asked Questions",
+        faq1_q: "Are all tours completely private?",
+        faq1_a: "Yes. Every experience is organized exclusively for you and your travel companions—whether you are traveling solo, as a couple, with family, or in a small private group.",
+        faq2_q: "Which languages do you guide in?",
+        faq2_a: "I offer private guiding in English, Slovenian, Croatian, German, and Spanish. Simply let me know your preferred language when reaching out.",
+        faq3_q: "Can we customize the itinerary and duration?",
+        faq3_a: "Absolutely. We can adjust the starting time, walking pace, stops, and focus areas (history, nature, photography, or local food) to fit your schedule.",
+        faq4_q: "How do I check availability or book a date?",
+        faq4_a: "Just send me a message via email or WhatsApp with your preferred dates, number of people, and general interests. I will get back to you personally with ideas and availability.",
+
+        contact_eyebrow: "Start a Conversation",
+        contact_title: "Let’s Plan Your Visit",
+        contact_lead: "Have a question or already know when you’re visiting? Reach out directly—I’d be happy to help you shape an unforgettable experience.",
+        contact_copy: "Copy Email",
+        contact_copied: "Email address copied to clipboard!",
+        footer_rights: "All rights reserved.",
+        footer_tagline: "Private Tourist Guide • Authentic Local Experiences"
+      },
+
+      sl: {
+        brand_sub: "Zasebni turistični vodnik",
+        nav_about: "O meni",
+        nav_experiences: "Doživetja",
+        nav_gallery: "Galerija",
+        nav_faq: "Pogosta vprašanja",
+        nav_contact: "Kontakt",
+
+        hero_eyebrow: "Slovenija • Zasebna vodenja",
+        hero_title: "Odkrijte Slovenijo v svojem ritmu, skozi oči domačina.",
+        hero_subtitle: "Osebne zgodbe, skriti kotički in premišljeno krojena doživetja stran od množic — pod zasebnim vodstvom Žige Glavana.",
+        hero_cta_primary: "Razišči doživetja",
+        hero_cta_secondary: "Stopi v stik",
+
+        about_photo_caption: "Žiga Glavan — Vaš lokalni gostitelj in zasebni vodnik.",
+        about_eyebrow: "O vodniku",
+        about_title: "Pozdravljeni, sem Žiga Glavan.",
+        about_p1: "Potovanje je najlepše takrat, ko imate občutek, da kraj raziskujete z razgledanim prijateljem in ne po vnaprej naučenem scenariju. Kot zasebni vodnik ustvarjam sproščena, pristna doživetja, prilagojena vaši radovednosti in tempu.",
+        about_p2: "Ne glede na to, ali se sprehajamo po zgodovinskih ulicah, okušamo lokalne dobrote ali se odpravimo v naravo, je moj cilj z vami deliti resnične zgodbe, vsakdanjo kulturo in tiho lepoto teh krajev.",
+        pillar1_title: "100 % zasebno",
+        pillar1_desc: "Samo vi, vaši sopotniki in prilagodljiv načrt brez velikih skupin.",
+        pillar2_title: "Lokalni vpogled",
+        pillar2_desc: "Zgodovina, kultura in skriti kotički, predstavljeni pristno in razumljivo.",
+        pillar3_title: "Prilagojen tempo",
+        pillar3_desc: "Vsak sprehod ali enodnevni izlet se prilagodi vašim željam in udobju.",
+
+        exp_eyebrow: "Kaj lahko raziščemo",
+        exp_title: "Izbrana zasebna doživetja",
+        exp_lead: "Tukaj je kratek pregled načinov, kako lahko skupaj preživimo čas. Vsako doživetje je prilagodljivo in ga oblikujemo glede na to, kar vas najbolj zanima.",
+        card1_tag: "01 / Mesto in kultura",
+        card1_title: "Tematski sprehodi po mestu",
+        card1_desc: "Umirjen sprehod skozi slikovite ulice, arhitekturo in lokalne zgodbe — povezava znanih znamenitosti s tihimi kotički, ki bi jih sami zlahka spregledali.",
+        card2_tag: "02 / Narava in izleti",
+        card2_title: "Slikoviti pobegi v naravo",
+        card2_desc: "Od smaragdnih jezer in alpskih dolin do obalnih mestec — doživite raznoliko pokrajino na dosegu roke, z najlepšimi razgledišči in lahkotnimi sprehodi.",
+        card3_tag: "03 / Po meri",
+        card3_title: "Izleti po meri in lokalni okusi",
+        card3_desc: "Imate posebno zanimanje, družinski urnik ali kulinarično radovednost? Zasnovali bomo zasebni poldnevni ali celodnevni izlet popolnoma po vaših željah.",
+        card_cta: "Povprašaj o tem izletu →",
+
+        gal_eyebrow: "Fotografski dnevnik",
+        gal_title: "Utrinki s poti",
+        gal_lead: "Kratek vpogled v kraje, vzdušje in majhne podrobnosti, ki čakajo, da jih odkrijete.",
+        gal_cap1: "Jutranja svetloba v starem mestnem jedru",
+        gal_cap2: "Sveži alpski razgledi nad dolino",
+        gal_cap3: "Mediteranski odtenki ob obali",
+        gal_cap4: "Pristni okusi in domača gostoljubnost",
+        gal_cap5: "Mirne poti stran od glavnih tokov",
+        gal_cap6: "Zlata ura ob vodi",
+
+        faq_eyebrow: "Dobro je vedeti",
+        faq_title: "Pogosta vprašanja",
+        faq1_q: "So vsi ogledi popolnoma zasebni?",
+        faq1_a: "Da. Vsako doživetje je organizirano izključno za vas in vaše sopotnike — ne glede na to, ali potujete sami, v paru, z družino ali v manjši zasebni družbi.",
+        faq2_q: "V katerih jezikih potekajo vodenja?",
+        faq2_a: "Zasebna vodenja izvajam v angleškem, slovenskem, hrvaškem, nemškem in španskem jeziku. Ob povpraševanju mi preprosto sporočite želeni jezik.",
+        faq3_q: "Ali lahko prilagodimo potek in trajanje ogleda?",
+        faq3_a: "Seveda. Uro začetka, tempo hoje, postanke in poudarke (zgodovina, narava, fotografija ali kulinarika) prilagodimo vašemu urniku.",
+        faq4_q: "Kako preverim razpoložljivost ali rezerviram termin?",
+        faq4_a: "Pošljite mi sporočilo po e-pošti ali prek WhatsAppa z želenimi datumi, številom oseb in vašimi željami. Osebno vam bom odgovoril s predlogi in prostimi termini.",
+
+        contact_eyebrow: "Stopiva v stik",
+        contact_title: "Načrtujva vaš obisk",
+        contact_lead: "Imate vprašanje ali že veste, kdaj prihajate? Pišite mi neposredno — z veseljem vam pomagam oblikovati nepozabno doživetje.",
+        contact_copy: "Kopiraj e-pošto",
+        contact_copied: "E-poštni naslov je kopiran!",
+        footer_rights: "Vse pravice pridržane.",
+        footer_tagline: "Zasebni turistični vodnik • Pristna lokalna doživetja"
+      },
+
+      hr: {
+        brand_sub: "Privatni turistički vodič",
+        nav_about: "O meni",
+        nav_experiences: "Doživljaji",
+        nav_gallery: "Galerija",
+        nav_faq: "Česta pitanja",
+        nav_contact: "Kontakt",
+
+        hero_eyebrow: "Slovenija • Privatna vođenja",
+        hero_title: "Otkrijte Sloveniju vlastitim tempom, očima lokalca.",
+        hero_subtitle: "Osobne priče, skriveni kutci i pažljivo osmišljena putovanja daleko od gužvi — uz privatno vodstvo Žige Glavana.",
+        hero_cta_primary: "Istraži doživljaje",
+        hero_cta_secondary: "Stupi u kontakt",
+
+        about_photo_caption: "Žiga Glavan — Vaš lokalni domaćin i privatni vodič.",
+        about_eyebrow: "O vašem vodiču",
+        about_title: "Pozdrav, ja sam Žiga Glavan.",
+        about_p1: "Putovanje je najljepše kada imate osjećaj da istražujete s dobrim prijateljem, a ne po unaprijed naučenom scenariju. Kao privatni vodič stvaram opuštena, autentična iskustva prilagođena vašoj znatiželji i ritmu.",
+        about_p2: "Bilo da šetamo povijesnim ulicama, uživamo u lokalnim okusima ili odlazimo u prirodu, moj je cilj podijeliti s vama stvarne priče, svakodnevnu kulturu i tihu ljepotu ovog kraja.",
+        pillar1_title: "100% privatno",
+        pillar1_desc: "Samo vi, vaši suputnici i fleksibilan plan bez velikih grupa.",
+        pillar2_title: "Lokalni uvid",
+        pillar2_desc: "Povijest, kultura i skrivena mjesta objašnjena iskreno i jednostavno.",
+        pillar3_title: "Prilagođen tempo",
+        pillar3_desc: "Svaka šetnja ili jednodnevni izlet prilagođava se vašim interesima i udobnosti.",
+
+        exp_eyebrow: "Što možemo istražiti",
+        exp_title: "Odabrani privatni doživljaji",
+        exp_lead: "Ovdje je pregled načina na koje možemo provesti vrijeme zajedno. Svako iskustvo je fleksibilno i prilagođava se onome što vas najviše zanima.",
+        card1_tag: "01 / Grad i kultura",
+        card1_title: "Prepoznatljive pješačke ture",
+        card1_desc: "Lagana šetnja šarmantnim ulicama, arhitekturom i lokalnim pričama — povezujući poznate znamenitosti s tihim kutcima koje biste sami lako propustili.",
+        card2_tag: "02 / Priroda i izleti",
+        card2_title: "Slikoviti izleti u prirodu",
+        card2_desc: "Od smaragdnih jezera i alpskih dolina do obalnih gradića — doživite raznolike krajolike nadohvat ruke, uz prekrasne vidikovce i lagane šetnje.",
+        card3_tag: "03 / Po mjeri",
+        card3_title: "Prilagođene rute i lokalni okusi",
+        card3_desc: "Imate poseban interes, obiteljski raspored ili gastronomsku znatiželju? Osmislimo privatni poludnevni ili cjelodnevni izlet u potpunosti prema vašim željama.",
+        card_cta: "Pošalji upit za ovu turu →",
+
+        gal_eyebrow: "Vizualni dnevnik",
+        gal_title: "Trenuci s putovanja",
+        gal_lead: "Kratak pogled na mjesta, atmosferu i male detalje koji čekaju da ih otkrijete.",
+        gal_cap1: "Jutarnje svjetlo u staroj gradskoj jezgri",
+        gal_cap2: "Svježi alpski pogledi iznad doline",
+        gal_cap3: "Mediteranski tonovi uz obalu",
+        gal_cap4: "Autentični okusi i domaće gostoprimstvo",
+        gal_cap5: "Mirne staze izvan utabanih ruta",
+        gal_cap6: "Zlatni sat uz vodu",
+
+        faq_eyebrow: "Dobro je znati",
+        faq_title: "Često postavljana pitanja",
+        faq1_q: "Jesu li sve ture potpuno privatne?",
+        faq1_a: "Da. Svako iskustvo organizirano je isključivo za vas i vaše suputnike — bilo da putujete sami, u paru, s obitelji ili u maloj privatnoj grupi.",
+        faq2_q: "Na kojim jezicima vodite?",
+        faq2_a: "Privatna vođenja nudim na engleskom, slovenskom, hrvatskom, njemačkom i španjolskom jeziku. Samo navedite željeni jezik prilikom javljanja.",
+        faq3_q: "Možemo li prilagoditi plan i trajanje ture?",
+        faq3_a: "Naravno. Možemo prilagoditi vrijeme polaska, tempo hoda, stajanja i fokus (povijest, priroda, fotografija ili lokalna hrana) vašem rasporedu.",
+        faq4_q: "Kako mogu provjeriti dostupnost ili rezervirati termin?",
+        faq4_a: "Pošaljite mi poruku e-poštom ili putem WhatsAppa sa željenim datumima, brojem osoba i interesima. Osobno ću vam odgovoriti s prijedlozima i slobodnim terminima.",
+
+        contact_eyebrow: "Započnimo razgovor",
+        contact_title: "Isplanirajmo vaš posjet",
+        contact_lead: "Imate pitanje ili već znate kada dolazite? Javite mi se izravno — rado ću vam pomoći oblikovati nezaboravno iskustvo.",
+        contact_copy: "Kopiraj e-poštu",
+        contact_copied: "Adresa e-pošte je kopirana!",
+        footer_rights: "Sva prava pridržana.",
+        footer_tagline: "Privatni turistički vodič • Autentična lokalna iskustva"
+      },
+
+      de: {
+        brand_sub: "Privater Gästeführer",
+        nav_about: "Über mich",
+        nav_experiences: "Erlebnisse",
+        nav_gallery: "Galerie",
+        nav_faq: "FAQ",
+        nav_contact: "Kontakt",
+
+        hero_eyebrow: "Slowenien • Private Führungen",
+        hero_title: "Entdecken Sie Slowenien in Ihrem eigenen Tempo, mit den Augen eines Einheimischen.",
+        hero_subtitle: "Persönliche Geschichten, versteckte Winkel und individuell gestaltete Touren abseits der Massen – privat geführt von Žiga Glavan.",
+        hero_cta_primary: "Erlebnisse entdecken",
+        hero_cta_secondary: "Kontakt aufnehmen",
+
+        about_photo_caption: "Žiga Glavan — Ihr lokaler Gastgeber und privater Guide.",
+        about_eyebrow: "Über Ihren Guide",
+        about_title: "Hallo, ich bin Žiga Glavan.",
+        about_p1: "Reisen ist dann am schönsten, wenn es sich anfühlt, als würde man einen Ort mit einem ortskundigen Freund entdecken – statt einem starren Skript zu folgen. Als privater Guide gestalte ich entspannte, authentische Erlebnisse, die sich ganz nach Ihrer Neugier und Ihrem Rhythmus richten.",
+        about_p2: "Ob wir durch historische Gassen schlendern, regionale Spezialitäten genießen oder hinaus in die Natur fahren: Mein Ziel ist es, echte Geschichten, gelebte Kultur und die stille Schönheit dieser Region mit Ihnen zu teilen.",
+        pillar1_title: "100 % Privat",
+        pillar1_desc: "Nur Sie, Ihre Begleitung und ein flexibler Ablauf ohne große Gruppen.",
+        pillar2_title: "Lokales Wissen",
+        pillar2_desc: "Geschichte, Kultur und Geheimtipps verständlich und authentisch vermittelt.",
+        pillar3_title: "Ihr eigenes Tempo",
+        pillar3_desc: "Jeder Rundgang und Tagesausflug passt sich Ihren Wünschen und Ihrem Komfort an.",
+
+        exp_eyebrow: "Was wir entdecken können",
+        exp_title: "Kuratierte Privaterlebnisse",
+        exp_lead: "Hier finden Sie einen Überblick darüber, wie wir gemeinsam Zeit verbringen können. Jedes Erlebnis ist flexibel und wird genau auf Ihre Interessen abgestimmt.",
+        card1_tag: "01 / Stadt & Kultur",
+        card1_title: "Individuelle Stadtrundgänge",
+        card1_desc: "Ein entspannter Spaziergang durch charmante Gassen, Architektur und lokale Geschichten – eine Verbindung bekannter Sehenswürdigkeiten mit ruhigen Ecken abseits des Trubels.",
+        card2_tag: "02 / Natur & Ausflüge",
+        card2_title: "Landschafts- & Tagesausflüge",
+        card2_desc: "Von smaragdgrünen Seen und Alpentälern bis hin zu Küstenstädten – erleben Sie vielfältige Landschaften mit herrlichen Aussichtspunkten und leichten Spaziergängen.",
+        card3_tag: "03 / Maßgeschneidert",
+        card3_title: "Wunschrouten & Lokale Kulinarik",
+        card3_desc: "Haben Sie ein spezielles Interesse, einen Familienzeitplan oder kulinarische Neugier? Wir gestalten einen privaten Halbtags- oder Ganztagesausflug ganz nach Ihren Vorstellungen.",
+        card_cta: "Tour unverbindlich anfragen →",
+
+        gal_eyebrow: "Visuelles Tagebuch",
+        gal_title: "Momente unterwegs",
+        gal_lead: "Ein kleiner Einblick in die Orte, die Atmosphäre und die feinen Details, die darauf warten, entdeckt zu werden.",
+        gal_cap1: "Morgenlicht in der Altstadt",
+        gal_cap2: "Klare Alpenblicke über dem Tal",
+        gal_cap3: "Mediterrane Farben an der Küste",
+        gal_cap4: "Authentische Genüsse und Gastfreundschaft",
+        gal_cap5: "Ruhige Pfade abseits der Hauptrouten",
+        gal_cap6: "Goldene Stunde am Wasser",
+
+        faq_eyebrow: "Gut zu wissen",
+        faq_title: "Häufig gestellte Fragen",
+        faq1_q: "Sind alle Touren komplett privat?",
+        faq1_a: "Ja. Jedes Erlebnis wird ausschließlich für Sie und Ihre Reisebegleitung organisiert – egal ob Sie allein, als Paar, mit der Familie oder in einer kleinen privaten Gruppe reisen.",
+        faq2_q: "In welchen Sprachen führen Sie?",
+        faq2_a: "Ich biete private Führungen auf Englisch, Slowenisch, Kroatisch, Deutsch und Spanisch an. Teilen Sie mir bei Ihrer Anfrage einfach Ihre Wunschsprache mit.",
+        faq3_q: "Können wir Ablauf und Dauer individuell anpassen?",
+        faq3_a: "Selbstverständlich. Startzeit, Gehtempo, Pausen und Schwerpunkte (Geschichte, Natur, Fotografie oder Kulinarik) passen wir flexibel an Ihren Zeitplan an.",
+        faq4_q: "Wie kann ich die Verfügbarkeit prüfen oder buchen?",
+        faq4_a: "Senden Sie mir einfach eine E-Mail oder WhatsApp-Nachricht mit Ihren Wunschdaten, der Personenzahl und Ihren Interessen. Ich melde mich persönlich mit Vorschlägen zurück.",
+
+        contact_eyebrow: "Gespräch beginnen",
+        contact_title: "Planen wir Ihren Besuch",
+        contact_lead: "Haben Sie eine Frage oder wissen Sie schon, wann Sie reisen? Kontaktieren Sie mich direkt – ich helfe Ihnen gerne, ein unvergessliches Erlebnis zu gestalten.",
+        contact_copy: "E-Mail kopieren",
+        contact_copied: "E-Mail-Adresse in die Zwischenablage kopiert!",
+        footer_rights: "Alle Rechte vorbehalten.",
+        footer_tagline: "Privater Gästeführer • Authentische lokale Erlebnisse"
+      },
+
+      es: {
+        brand_sub: "Guía Privado",
+        nav_about: "Sobre mí",
+        nav_experiences: "Experiencias",
+        nav_gallery: "Galería",
+        nav_faq: "Preguntas",
+        nav_contact: "Contacto",
+
+        hero_eyebrow: "Eslovenia • Visitas Privadas",
+        hero_title: "Descubre Eslovenia a tu propio ritmo, a través de ojos locales.",
+        hero_subtitle: "Historias personales, rincones escondidos y recorridos diseñados a medida lejos de las multitudes, guiados de forma privada por Žiga Glavan.",
+        hero_cta_primary: "Explorar experiencias",
+        hero_cta_secondary: "Contactar",
+
+        about_photo_caption: "Žiga Glavan — Tu anfitrión local y guía privado.",
+        about_eyebrow: "Sobre tu guía",
+        about_title: "Hola, soy Žiga Glavan.",
+        about_p1: "Viajar se disfruta mucho más cuando se siente como explorar con un amigo conocedor del lugar en lugar de seguir un guion rígido. Como guía privado, creo experiencias relajadas y auténticas adaptadas a tu curiosidad y ritmo.",
+        about_p2: "Ya sea paseando por calles históricas, disfrutando de sabores locales o saliendo a la naturaleza, mi objetivo es compartir historias reales, cultura cotidiana y la belleza serena que hace inolvidable esta región.",
+        pillar1_title: "100 % Privado",
+        pillar1_desc: "Solo tú, tus acompañantes y un itinerario flexible sin grupos grandes.",
+        pillar2_title: "Mirada Local",
+        pillar2_desc: "Historia, cultura y rincones secretos explicados de forma cercana y genuina.",
+        pillar3_title: "Ritmo a Medida",
+        pillar3_desc: "Cada paseo o excursión se adapta a tus intereses, horarios y comodidad.",
+
+        exp_eyebrow: "Qué podemos explorar",
+        exp_title: "Experiencias Privadas Seleccionadas",
+        exp_lead: "Aquí tienes un resumen de cómo podemos compartir tiempo juntos. Cada experiencia es flexible y se adapta una vez conversemos sobre lo que más te interesa.",
+        card1_tag: "01 / Ciudad y Cultura",
+        card1_title: "Paseos Guiados de Autor",
+        card1_desc: "Un recorrido sin prisas por calles con encanto, arquitectura e historias locales, conectando lugares emblemáticos con rincones tranquilos que pasarías por alto por tu cuenta.",
+        card2_tag: "02 / Naturaleza y Escapadas",
+        card2_title: "Excursiones Panorámicas de un Día",
+        card2_desc: "Desde lagos esmeralda y valles alpinos hasta pueblos costeros: descubre paisajes diversos a poca distancia, con miradores espectaculares y caminatas suaves.",
+        card3_tag: "03 / A tu Medida",
+        card3_title: "Itinerarios Personalizados y Sabores",
+        card3_desc: "¿Tienes un interés especial, horario familiar o curiosidad gastronómica? Diseñemos una experiencia privada de medio día o día completo totalmente a tu gusto.",
+        card_cta: "Consultar sobre este tour →",
+
+        gal_eyebrow: "Diario Visual",
+        gal_title: "Momentos en el Camino",
+        gal_lead: "Un vistazo a los lugares, la atmósfera y los pequeños detalles que esperan ser descubiertos.",
+        gal_cap1: "Luz de la mañana en el casco antiguo",
+        gal_cap2: "Vistas alpinas despejadas sobre el valle",
+        gal_cap3: "Tonos mediterráneos junto a la costa",
+        gal_cap4: "Sabores auténticos y hospitalidad local",
+        gal_cap5: "Senderos tranquilos fuera de las rutas habituales",
+        gal_cap6: "La hora dorada junto al agua",
+
+        faq_eyebrow: "Información Útil",
+        faq_title: "Preguntas Frecuentes",
+        faq1_q: "¿Son todos los tours completamente privados?",
+        faq1_a: "Sí. Cada experiencia se organiza exclusivamente para ti y tus acompañantes, ya viajes solo, en pareja, en familia o en un pequeño grupo privado.",
+        faq2_q: "¿En qué idiomas realizas las visitas?",
+        faq2_a: "Ofrezco visitas guiadas privadas en inglés, esloveno, croata, alemán y español. Solo indícame tu idioma preferido al escribirme.",
+        faq3_q: "¿Podemos personalizar el itinerario y la duración?",
+        faq3_a: "Por supuesto. Podemos ajustar la hora de inicio, el ritmo de caminata, las paradas y el enfoque (historia, naturaleza, fotografía o gastronomía) según tu agenda.",
+        faq4_q: "¿Cómo consulto disponibilidad o reservo una fecha?",
+        faq4_a: "Envíame un mensaje por correo electrónico o WhatsApp con tus fechas preferidas, número de personas e intereses generales. Te responderé personalmente con propuestas y disponibilidad.",
+
+        contact_eyebrow: "Iniciemos una Conversación",
+        contact_title: "Planifiquemos tu Visita",
+        contact_lead: "¿Tienes alguna pregunta o ya sabes cuándo vienes? Escríbeme directamente; estaré encantado de ayudarte a crear una experiencia inolvidable.",
+        contact_copy: "Copiar correo",
+        contact_copied: "¡Correo electrónico copiado al portapapeles!",
+        footer_rights: "Todos los derechos reservados.",
+        footer_tagline: "Guía Turístico Privado • Experiencias Locales Auténticas"
+      }
+    };
+
+    // =========================================================================
+    // LANGUAGE SWITCHER LOGIC (Defaults to EN, saves choice in localStorage)
+    // =========================================================================
+    let currentLang = 'en';
+    try {
+      const savedLang = localStorage.getItem('zg_lang');
+      if (savedLang && translations[savedLang]) {
+        currentLang = savedLang;
+      }
+    } catch (e) {
+      // Fallback safely if localStorage is restricted
+    }
+
+    function applyLanguage(lang) {
+      if (!translations[lang]) return;
+      currentLang = lang;
+      document.documentElement.lang = lang;
+
+      try {
+        localStorage.setItem('zg_lang', lang);
+      } catch (e) {}
+
+      // Update all elements with data-i18n
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      // Update active button state
+      document.querySelectorAll('.lang-btn').forEach((btn) => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+    }
+
+    document.querySelectorAll('.lang-btn').forEach((btn) => {
+      btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
+    });
+
+    // Apply initial language on load
+    applyLanguage(currentLang);
+
+    // =========================================================================
+    // STICKY HEADER & MOBILE MENU
+    // =========================================================================
+    const header = document.getElementById('header');
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // =========================================================================
+    // GALLERY LIGHTBOX
+    // =========================================================================
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxText = document.getElementById('lightboxText');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    document.querySelectorAll('.gallery-item').forEach((item) => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        const capKey = item.getAttribute('data-caption-key');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxText.textContent = translations[currentLang][capKey] || '';
+        lightbox.classList.add('open');
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // =========================================================================
+    // COPY EMAIL HELPER (iFrame-safe using execCommand fallback)
+    // =========================================================================
+    const copyEmailBtn = document.getElementById('copyEmailBtn');
+    const copyFeedback = document.getElementById('copyFeedback');
+
+    copyEmailBtn.addEventListener('click', () => {
+      const email = copyEmailBtn.getAttribute('data-email');
+      const tempInput = document.createElement('input');
+      tempInput.value = email;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      try {
+        document.execCommand('copy');
+        copyFeedback.textContent = translations[currentLang].contact_copied;
+        setTimeout(() => {
+          copyFeedback.textContent = '';
+        }, 3000);
+      } catch (err) {
+        copyFeedback.textContent = email;
+      }
+      document.body.removeChild(tempInput);
+    });
+  </script>
+</body>
+</html>
